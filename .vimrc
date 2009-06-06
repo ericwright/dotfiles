@@ -17,6 +17,7 @@ set whichwrap=h,l,~,[,]
 set linebreak
 set enc=utf-8
 set path+=**
+set gcr=a:blinkwait0,a:block-cursor
 let loaded_matchparen = 1
 
 noremap K i<CR><Esc>h
@@ -24,16 +25,22 @@ noremap U 
 noremap ci> T>ct<
 noremap <D-\> :FuzzyFinderTextMate<CR>
 
-au BufRead *.hs compiler ghc
-au BufRead *.lhs compiler ghc
+
 au BufRead,BufNewFile *.arc set filetype=lisp
 au BufRead,BufNewFile *.xaml set filetype=xml
-au BufRead,BufNewFile Rakefile set filetype=ruby
-au BufRead,BufNewFile rakefile set filetype=ruby
-au BufRead,BufNewFile *.rake   set filetype=ruby
-au BufRead,BufNewFile .irbrc   set filetype=ruby
-au BufRead,BufNewFile *.rjs    set filetype=ruby
 
+au BufRead *.hs compiler ghc
+au BufRead *.lhs compiler ghc
+
+autocmd BufRead,BufNewFile Rakefile set filetype=ruby
+autocmd BufRead,BufNewFile rakefile set filetype=ruby
+autocmd BufRead,BufNewFile *.rake   set filetype=ruby
+autocmd BufRead,BufNewFile .irbrc   set filetype=ruby
+autocmd BufRead,BufNewFile *.rjs    set filetype=ruby
+
+
+set pfn=Consolas:h10
+set pheader=
 
 " ruby end tokens
 
