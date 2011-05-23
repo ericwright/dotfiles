@@ -24,3 +24,16 @@ alias mvim="mvim -p --remote-tab-silent"
 alias asyv="ssh asyvtina@agahozo-shalom.org"
 alias killp4merge="kill `ps aux | grep p4merge | awk '{print $2}' `"
 
+g() {
+	if [[ $# == '0' ]]; then
+		git status
+	else
+		case $1 in
+			fuss)
+				shift
+				git rebase -i HEAD~"$1";;
+			*)
+				git "$@";;
+		esac
+	fi
+}
