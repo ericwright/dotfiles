@@ -19,8 +19,8 @@ if has("gui_running")
 " Colors for the User Interface.
 	hi linenr           guibg=#262626     guifg=#808080    gui=bold
     hi Cursor           guibg=#ccffff
-	hi cursorline		guibg=#222222
-	hi Folded           guibg=#333333	guifg=#999999
+	hi cursorline		guibg=#111111 
+	hi CursorColumn		guibg=#111111
 
     hi link             CursorIM Cursor
 	hi Normal           guibg=black       guifg=white      gui=none 
@@ -108,7 +108,7 @@ if has("gui_running")
 else
 " Colors for the User Interface.
 
-    if exists("g:eaw_setnum")
+    if exists("g:gardener_setnum")
         exec "hi linenr     cterm=BOLD   ctermfg=235   ctermbg=244"
     else
         exec "hi linenr     cterm=BOLD   ctermfg=244   ctermbg=235"
@@ -144,7 +144,7 @@ else
     exec "hi DiffAdd        cterm=BOLD   ctermfg=255   ctermbg=95"
 
     " Colors for Syntax Highlighting.
-    if exists("g:eaw_light_comments")
+    if exists("g:gardener_light_comments")
         exec "hi Comment        cterm=NONE   ctermfg=253   ctermbg=60"
     else
         exec "hi Comment        cterm=NONE   ctermfg=244   ctermbg=NONE"

@@ -1,46 +1,53 @@
 set nocompatible
-filetype plugin on
+filetype plugin indent on
 syntax enable
-set nohlsearch
+let loaded_matchparen = 1
+set autoindent
+set backspace=indent,eol,start
+set binary noeol
+set enc=utf-8
+set expandtab
+set gcr=a:blinkwait0,a:block-cursor
+set ignorecase
 set incsearch
+set linebreak
+set nohlsearch
+set path+=**
 set ruler
 set shiftwidth=2
+set smarttab
 set softtabstop=2
 set tabstop=2
-set smarttab
-set ignorecase
-set expandtab
-set autoindent
-set binary noeol
-set backspace=indent,eol,start
+set visualbell t_vb=
 set whichwrap=h,l,~,[,]
-set linebreak
-set enc=utf-8
-set path+=**
-set gcr=a:blinkwait0,a:block-cursor
-let loaded_matchparen = 1
 
 noremap K i<CR><Esc>h
 noremap U  
 noremap ci> T>ct<
-noremap <D-\> :FuzzyFinderTextMate<CR>
-
-
-au BufRead,BufNewFile *.arc set filetype=lisp
-au BufRead,BufNewFile *.xaml set filetype=xml
+noremap ci< T<ct>
+noremap di> T>dt<
+noremap di< T<dt>
 
 au BufRead *.hs compiler ghc
 au BufRead *.lhs compiler ghc
+au BufRead,BufNewFile *.arc set filetype=lisp
+au BufRead,BufNewFile *.xaml set filetype=xml
+au BufRead,BufNewFile *.gsp set filetype=xml
+au BufRead,BufNewFile Rakefile set filetype=ruby
+au BufRead,BufNewFile rakefile set filetype=ruby
+au BufRead,BufNewFile *.rake   set filetype=ruby
+au BufRead,BufNewFile .irbrc   set filetype=ruby
+au BufRead,BufNewFile *.rjs    set filetype=ruby
+au BufRead,BufNewFile *.scss set filetype=scss
+au BufRead,BufNewFile *.textile set filetype=textile
 
-autocmd BufRead,BufNewFile Rakefile set filetype=ruby
-autocmd BufRead,BufNewFile rakefile set filetype=ruby
-autocmd BufRead,BufNewFile *.rake   set filetype=ruby
-autocmd BufRead,BufNewFile .irbrc   set filetype=ruby
-autocmd BufRead,BufNewFile *.rjs    set filetype=ruby
 
-
-set pfn=Consolas:h10
-set pheader=
+" disable continuations of comment block on Enter
+autocmd FileType * setlocal formatoptions-=cro
+ 
+" warning dialogs go in status bar, not popup window
+autocmd FileChangedRO * echohl WarningMsg | echo "File changed RO." | echohl None
+autocmd FileChangedShell * echohl WarningMsg | echo "File changed shell." | echohl None
 
 " ruby end tokens
 
@@ -62,7 +69,7 @@ function RubyEndToken ()
 endfunction
 
 function UseRubyIndent ()
-    setlocal tabstop=8
+    setlocal tabstop=2
     setlocal softtabstop=2
     setlocal shiftwidth=2
     setlocal expandtab
@@ -71,3 +78,18 @@ function UseRubyIndent ()
 endfunction
 
 autocmd FileType ruby,eruby call UseRubyIndent()
+
+" automatically checkout from Perforce
+" http://stackoverflow.com/questions/1095708/disable-warning-in-vim
+let s:IgnoreChange=0
+autocmd! FileChangedRO * nested
+    \ let s:IgnoreChange=1 |
+    \ call system("p4 edit " . expand("%")) |
+    \ set noreadonly
+autocmd! FileChangedShell *
+    \ if 1 == s:IgnoreChange |
+    \   let v:fcs_choice="" |
+    \   let s:IgnoreChange=0 |
+    \ else |
+    \   let v:fcs_choice="ask" |
+    \ endif

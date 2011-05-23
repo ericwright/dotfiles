@@ -51,7 +51,7 @@ if has("gui_running")
   hi StatusLine       guibg=#222222    guifg=white     gui=none 
   hi StatusLineNC     guibg=#ffffcc    guifg=black     gui=none 
   "hi StorageClass  guibg=bg        guifg=#99cc99  gui=none    
-  hi String           guibg=bg          guifg=#dd0000    gui=none    
+  hi String           guibg=bg          guifg=#DA4936    gui=none    
   "hi Structure  guibg=bg        guifg=#99ff99    gui=none    
   hi Tag    guibg=bg        guifg=#bbddff  gui=none    
   hi Title            guibg=#444444     guifg=white     gui=none    
