@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedWeb'
+let g:netrw_dirhist_2='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedAlerting/grails-app/views/block'
+let g:netrw_dirhist_3='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedAlerting/grails-app/views'
+let g:netrw_dirhist_4='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedAlerting/grails-app/views/block'
+let g:netrw_dirhist_5='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedAlerting/grails-app/views'
+let g:netrw_dirhist_6='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedAlerting/grails-app/views/intradayBlocks'
+let g:netrw_dirhist_7='/Users/ewright/.vim'
+let g:netrw_dirhist_8='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/stable/Web/InfraRedWeb'
+let g:netrw_dirhist_9='/Users/ewright/Perforce/foundry_1666/ewright/depot/src/release/InfraRed/trunk/Web/InfraRedWeb'

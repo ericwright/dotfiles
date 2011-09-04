@@ -1,16 +1,16 @@
-set nocompatible
 filetype plugin indent on
-syntax enable
 let loaded_matchparen = 1
 set autoindent
 set backspace=indent,eol,start
 set binary noeol
 set enc=utf-8
 set expandtab
+set fo-=r
 set gcr=a:blinkwait0,a:block-cursor
 set ignorecase
 set incsearch
 set linebreak
+set nocompatible
 set nohlsearch
 set path+=**
 set ruler
@@ -20,6 +20,8 @@ set softtabstop=2
 set tabstop=2
 set visualbell t_vb=
 set whichwrap=h,l,~,[,]
+syntax enable
+
 
 noremap K i<CR><Esc>h
 noremap U  
@@ -28,29 +30,37 @@ noremap ci< T<ct>
 noremap di> T>dt<
 noremap di< T<dt>
 
-au BufRead *.hs compiler ghc
-au BufRead *.lhs compiler ghc
+
 au BufRead,BufNewFile *.arc set filetype=lisp
-au BufRead,BufNewFile *.xaml set filetype=xml
 au BufRead,BufNewFile *.gsp set filetype=xml
-au BufRead,BufNewFile Rakefile set filetype=ruby
-au BufRead,BufNewFile rakefile set filetype=ruby
+au BufRead,BufNewFile *.hs compiler ghc
+au BufRead,BufNewFile *.js.erb set filetype=javascript
+au BufRead,BufNewFile *.js.haml set filetype=javascript
+au BufRead,BufNewFile *.jsx set filetype=javascript
+au BufRead,BufNewFile *.lhs compiler ghc
+au BufRead,BufNewFile *.liquid	 setf liquid
 au BufRead,BufNewFile *.rake   set filetype=ruby
-au BufRead,BufNewFile .irbrc   set filetype=ruby
 au BufRead,BufNewFile *.rjs    set filetype=ruby
+au BufRead,BufNewFile *.ru   set filetype=ruby
 au BufRead,BufNewFile *.scss set filetype=scss
 au BufRead,BufNewFile *.textile set filetype=textile
+au BufRead,BufNewFile *.xaml set filetype=xml
+au BufRead,BufNewFile *.xaml set filetype=xml
+au BufRead,BufNewFile *.irbrc   set filetype=ruby
+au BufRead,BufNewFile Rakefile set filetype=ruby
+au BufRead,BufNewFile rakefile set filetype=ruby
 
 
 " disable continuations of comment block on Enter
 autocmd FileType * setlocal formatoptions-=cro
  
+
 " warning dialogs go in status bar, not popup window
 autocmd FileChangedRO * echohl WarningMsg | echo "File changed RO." | echohl None
 autocmd FileChangedShell * echohl WarningMsg | echo "File changed shell." | echohl None
 
-" ruby end tokens
 
+" ruby end tokens
 function RubyEndToken ()
     let current_line = getline( '.' )
     let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
@@ -68,6 +78,7 @@ function RubyEndToken ()
     endif
 endfunction
 
+
 function UseRubyIndent ()
     setlocal tabstop=2
     setlocal softtabstop=2
@@ -78,6 +89,7 @@ function UseRubyIndent ()
 endfunction
 
 autocmd FileType ruby,eruby call UseRubyIndent()
+
 
 " automatically checkout from Perforce
 " http://stackoverflow.com/questions/1095708/disable-warning-in-vim

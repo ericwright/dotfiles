@@ -1,7 +1,7 @@
 set nocompatible
 colorscheme eaw4
 set antialias
-set guifont=Consolas:h18
+set guifont=Consolas:h14
 set cursorline
 
 " make PeepOpen trigger on Apple-\
