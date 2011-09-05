@@ -10,7 +10,7 @@ export M2_HOME=/usr/local/Cellar/maven/2.2.1
 export MAVEN_OPTS="-Xmx1024m -Xms512m -XX:MaxPermSize=512m"
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin:~/.gem/ruby/1.8/bin
-export PS1='\[\e[0;32m\]\u\$\[\e[0m\] '
+export PS1='\[\e[0;32m\]\u \$\[\e[0m\] '
 
 unset MAILCHECK
 export P4USER=ewright
